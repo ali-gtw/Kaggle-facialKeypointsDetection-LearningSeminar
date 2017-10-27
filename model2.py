@@ -102,4 +102,4 @@ with open('net2.pickle', 'wb') as f:
 
 
 
-submit(net2, load2)
+submit(net2, load2d)
