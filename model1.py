@@ -73,7 +73,7 @@ net1 = NeuralNet(
     
     
     regression = True, # a flag indicating we're dealing with regression problem
-    max_epochs = 1, # we want to train this many epochs
+    max_epochs = 1000, # we want to train this many epochs
     verbose=1,
     
     
