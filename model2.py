@@ -4,16 +4,17 @@ import numpy as np
 from pandas.io.parsers import read_csv
 from sklearn.utils import shuffle
 
+import cPickle as pickle
+
+from submission import submit
 
 
-
-
-FTRAIN = '/home/ali/dataScience/kaggle/Kaggle-facialKeypointsDetection-LearningSeminar/data/training.zip'
-FTEST = '/home/ali/dataScience/kaggle/Kaggle-facialKeypointsDetection-LearningSeminar/data/test.zip'
+FTRAIN = 'data/training.zip'
+FTEST = 'data/test.zip'
 
 def load (test=False, cols=None):
     fname = FTEST if test else FTRAIN
-    df = read_csv (os.path.expanduser(fname)) # Load pandas dataframe
+    df = read_csv (fname) # Load pandas dataframe
     
     
     # The Image column has pixel values separated by space; convert
@@ -93,6 +94,12 @@ net2.fit(X, y)
 
 
 
-import cPickle as pickle
+
 with open('net2.pickle', 'wb') as f:
     pickle.dump(net2, f, -1)
+
+
+
+
+
+submit(net2, load2)
